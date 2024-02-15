@@ -45,13 +45,6 @@ npm install --save-dev husky
 npm install
 ```
 
-To maintain code quality, husky is used to run test, linting, and formatting checks
-before commits. To enable this, you need to install the git hooks:
-
-```bash
-npx husky install
-```
-
 ## Developing
 
 Start a development server:
