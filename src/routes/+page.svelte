@@ -1,11 +1,11 @@
 <script lang="ts">
-	// Import components here
+  // Import components here
 </script>
 
 <main>
-	<h1>Welcome to the DMVis Gallery</h1>
+  <h1>Welcome to the DMVis Gallery</h1>
 </main>
 
 <style>
-	/* Add styles here */
+  /* Add styles here */
 </style>
