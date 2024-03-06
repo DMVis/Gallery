@@ -21,11 +21,13 @@ settings for their code editor. This is used by the EditorConfig plugin for
 Visual Studio Code.
 
 Also make sure that, when developing, you have the `DMVis` package locally installed
-and linked to this project. You can do this by running the following command in the
-`DMVis` package:
+and stored in the same parent directory as `DMVis-Gallery`. This is because the
+`DMVis-Gallery` package is dependent on the `DMVis` package. You can install the
+`DMVis` package by running the following command in the terminal inside of the
+`DMVis` directory:
 
 ```bash
-npm link ../dmvis
+npm run build
 ```
 
 ## Setting up
