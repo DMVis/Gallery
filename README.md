@@ -20,6 +20,14 @@ We have created a `.editorconfig` file to ensure that all developers use the sam
 settings for their code editor. This is used by the EditorConfig plugin for
 Visual Studio Code.
 
+Also make sure that, when developing, you have the `DMVis` package locally installed
+and linked to this project. You can do this by running the following command in the
+`DMVis` package:
+
+```bash
+npm link ../dmvis
+```
+
 ## Setting up
 
 You will need to install the following dependencies:
