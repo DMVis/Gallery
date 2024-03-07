@@ -30,7 +30,7 @@
     "*.{js,ts}": [
       "eslint --quiet --fix"
     ],
-    "*.{json,js,ts,html,svelte}": [
+    "*.{json,js,ts,html,svelte,cjs}": [
       "prettier --write --ignore-unknown"
     ]
   },
