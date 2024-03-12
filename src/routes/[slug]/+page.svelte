@@ -5,7 +5,7 @@
   import { Card, Heading, A, P } from 'flowbite-svelte';
   import { page } from '$app/stores';
 
-  const available_vis = ['line-chart'];
+  const available_vis = ['line-chart', 'scatterplot'];
   const current_page = $page.params.slug.split('/').pop() || '';
 </script>
 

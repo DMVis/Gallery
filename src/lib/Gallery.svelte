@@ -1,5 +1,7 @@
 <script lang="ts">
   import { Card } from 'flowbite-svelte';
+  import { searchStore } from '../stores/searchStore';
+  import { fade } from 'svelte/transition';
 
   const visualisations = [
     {
@@ -21,17 +23,30 @@
         'A scatter plot is a type of plot or mathematical diagram using Cartesian coordinates to display values for typically two variables for a set of data.'
     }
   ];
+
+  // Reactive statement to filter visualisations based on the search term
+  let filteredVisualisations = visualisations;
+  $: $searchStore,
+    (filteredVisualisations = visualisations.filter(
+      (vis) =>
+        vis.title.toLowerCase().includes($searchStore.toLowerCase()) ||
+        vis.description.toLowerCase().includes($searchStore.toLowerCase())
+    ));
 </script>
 
 <article class="w-100 col-span-4 m-4">
   <section class="grid grid-cols-3 gap-4">
-    {#each visualisations as vis}
-      <Card href={vis.src} class="place-self-center">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {vis.title}
-        </h5>
-        <p class="font-normal leading-tight text-gray-700 dark:text-gray-400">{vis.description}</p>
-      </Card>
+    {#each filteredVisualisations as vis}
+      <div in:fade={{ duration: 300 }} out:fade={{ duration: 300 }}>
+        <Card href={vis.src} class="place-self-center">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {vis.title}
+          </h5>
+          <p class="font-normal leading-tight text-gray-700 dark:text-gray-400">
+            {vis.description}
+          </p>
+        </Card>
+      </div>
     {/each}
   </section>
 </article>

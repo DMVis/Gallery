@@ -1,18 +1,31 @@
 <script lang="ts">
-  import { LineChart } from 'dmvis';
+  import { LineChart, Scatterplot } from 'dmvis';
+  import { page } from '$app/stores';
+  import { onMount } from 'svelte';
+  import { dataStore } from '../stores/dataStore';
 
-  let data: { x: number; y: number }[] = [
-    { x: 0, y: 0 },
-    { x: 1, y: 2 },
-    { x: 2, y: 4 },
-    { x: 3, y: 4 }
-  ];
+  const current_page = $page.params.slug.split('/').pop() || '';
+
+  let data: { x: number; y: number }[] = [];
+
+  // Subscribe to the data store and update `datasetName` and `data` when it changes
+  const unsubscribe = dataStore.subscribe((value) => {
+    data = value.data;
+  });
+
+  onMount(() => {
+    return unsubscribe; // Unsubscribe when the component is destroyed
+  });
   const width = 640;
   const height = 640;
 </script>
 
 <article>
   <section>
-    <LineChart marginLeft={40} marginBottom={40} {width} {height} {data} />
+    {#if current_page === 'line-chart'}
+      <LineChart marginLeft={40} marginBottom={40} {width} {height} {data} />
+    {:else if current_page === 'scatterplot'}
+      <Scatterplot marginLeft={40} marginBottom={40} {width} {height} {data} />
+    {/if}
   </section>
 </article>
