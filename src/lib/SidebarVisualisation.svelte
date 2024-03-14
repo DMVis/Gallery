@@ -1,29 +1,19 @@
 <script lang="ts">
   import { Heading, P, Hr, A } from 'flowbite-svelte';
-  import { dataStore } from '../stores/dataStore';
-  import { onMount } from 'svelte';
+  import { type Data } from '../stores/dataStore';
+  import DatasetSelector from './DatasetSelector.svelte';
 
-  let datasetName = '';
-  let data: { x: number; y: number }[] = [];
-
-  // Subscribe to the data store and update `datasetName` and `data` when it changes
-  const unsubscribe = dataStore.subscribe((value) => {
-    datasetName = value.name;
-    data = value.data;
-  });
-
-  onMount(() => {
-    return unsubscribe; // Unsubscribe when the component is destroyed
-  });
+  export let dataset: Data;
 </script>
 
 <article>
   <section>
-    <Heading tag="h3">Filters</Heading>
-    <P>Here you can filter the data in your visualisation.</P>
-    <P>Name: {datasetName}</P>
-    <P>Data: {data}</P>
+    <Heading tag="h3">Visualisation info</Heading>
+    <P>Here you can see the data in your visualisation.</P>
+    <P><b>Name</b>: {dataset.name}</P>
   </section>
+  <Hr />
+  <DatasetSelector />
   <Hr />
   <section>
     <Heading tag="h3">Back to home</Heading>
