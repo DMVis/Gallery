@@ -9,13 +9,6 @@
   function selectDataset(newDataSet: { name: string; data: { x: number; y: number }[] }) {
     dataStore.set(newDataSet);
   }
-
-  // Subscribe to datasets store
-  let unsubscribe = datasets.subscribe(() => {});
-
-  onDestroy(() => {
-    return unsubscribe;
-  });
 </script>
 
 <section>

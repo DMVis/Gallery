@@ -8,7 +8,7 @@
   import { dataStore, type Data } from '../../stores/dataStore';
 
   let dataset: Data = { name: '', data: [] };
-  const available_vis = ['line-chart', 'scatterplot'];
+  const available_vis = ['line-chart', 'scatterplot', 'bar-chart'];
   const current_page = $page.params.slug.split('/').pop() || '';
   const unsubscribe = dataStore.subscribe((value) => (dataset = value));
 
@@ -22,7 +22,7 @@
     <Sidebar>
       <SidebarVisualisation {dataset} />
     </Sidebar>
-    <article class="col-span-4">
+    <article class="col-span-4 h-screen overflow-y-auto">
       <section>
         {#if dataset.name !== undefined}
           <svelte:component this={Visualisation} {dataset} />
