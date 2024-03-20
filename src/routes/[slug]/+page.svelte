@@ -1,31 +1,25 @@
 <script lang="ts">
   import { Card, Heading, A, P } from 'flowbite-svelte';
-  import { onDestroy } from 'svelte';
-  import { page } from '$app/stores';
-  import SidebarVisualisation from '$lib/SidebarVisualisation.svelte';
-  import Visualisation from '$lib/Visualisation.svelte';
-  import Sidebar from '$lib/Sidebar.svelte';
-  import { dataStore, type Data } from '../../stores/dataStore';
 
-  let dataset: Data = { name: '', data: [] };
+  import { page } from '$app/stores';
+  import Sidebar from '$lib/Sidebar.svelte';
+  import { dataStore } from '$lib/stores/dataStore';
+  import Visualisation from '$lib/Visualisation.svelte';
+  import SidebarVisualisation from '$lib/SidebarVisualisation.svelte';
+
   const available_vis = ['line-chart', 'scatterplot', 'bar-chart'];
   const current_page = $page.params.slug.split('/').pop() || '';
-  const unsubscribe = dataStore.subscribe((value) => (dataset = value));
-
-  onDestroy(() => {
-    return unsubscribe;
-  });
 </script>
 
 <main class="grid grid-cols-5">
   {#if available_vis.includes(current_page)}
     <Sidebar>
-      <SidebarVisualisation {dataset} />
+      <SidebarVisualisation dataset={$dataStore} />
     </Sidebar>
     <article class="col-span-4 h-screen overflow-y-auto">
       <section>
-        {#if dataset.name !== undefined}
-          <svelte:component this={Visualisation} {dataset} />
+        {#if $dataStore.name !== undefined}
+          <svelte:component this={Visualisation} dataset={$dataStore} />
         {:else}
           <Card class="col-span-5 m-auto">
             <Heading tag="h2">No data</Heading>

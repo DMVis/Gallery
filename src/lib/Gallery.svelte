@@ -1,7 +1,8 @@
 <script lang="ts">
   import { Card } from 'flowbite-svelte';
-  import { searchStore } from '../stores/searchStore';
   import { fade } from 'svelte/transition';
+
+  import { searchStore } from '$lib/stores/searchStore';
 
   const visualisations = [
     {
@@ -14,7 +15,7 @@
       title: 'Bar Chart',
       src: '/bar-chart',
       description:
-        'A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent.'
+        'A bar chart or bar visualisation is a chart or visualisation that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent.'
     },
     {
       title: 'Scatterplot',

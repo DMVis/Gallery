@@ -1,7 +1,8 @@
 <script lang="ts">
   import { Heading, P, Hr, A } from 'flowbite-svelte';
-  import { type Data } from '../stores/dataStore';
-  import DatasetSelector from './DatasetSelector.svelte';
+
+  import { type Data } from '$lib/stores/dataStore';
+  import DatasetSelector from '$lib/DatasetSelector.svelte';
 
   export let dataset: Data;
 </script>

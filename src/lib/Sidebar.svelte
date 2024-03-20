@@ -6,7 +6,7 @@
   <Sidebar asideClass="w-100">
     <SidebarWrapper class="h-screen">
       <Heading tag="h2">DMVis</Heading>
-      <P>Welcome to the Decision Matrix Visualisation tool.</P>
+      <P>Welcome to the Decision Making Visualisation tool.</P>
       <Hr />
       <slot />
       <Hr />

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Heading, P, Search } from 'flowbite-svelte';
-  import { searchStore } from '../stores/searchStore';
+
+  import { searchStore } from '$lib/stores/searchStore';
 </script>
 
 <article>

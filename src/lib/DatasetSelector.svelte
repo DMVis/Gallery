@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { Button, Heading, Dropdown, DropdownItem } from 'flowbite-svelte';
   import { ChevronDownSolid } from 'flowbite-svelte-icons';
-  import { onDestroy } from 'svelte';
+  import { Button, Heading, Dropdown, DropdownItem } from 'flowbite-svelte';
 
-  import { dataStore, datasets } from '../stores/dataStore';
+  import { dataStore, datasets } from '$lib/stores/dataStore';
 
   // Update the dataStore with the new data
   function selectDataset(newDataSet: { name: string; data: { x: number; y: number }[] }) {
