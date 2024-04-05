@@ -7,7 +7,12 @@
   import Visualisation from '$lib/Visualisation.svelte';
   import SidebarVisualisation from '$lib/SidebarVisualisation.svelte';
 
-  const available_vis = ['line-chart', 'scatterplot', 'bar-chart'];
+  const available_vis = [
+    'parallel-coordinates',
+    'stacked-bar-chart',
+    'scatterplot-matrix',
+    'tabular'
+  ];
   const current_page = $page.params.slug.split('/').pop() || '';
 </script>
 
@@ -19,7 +24,7 @@
     <article class="col-span-4 h-screen overflow-y-auto">
       <section>
         {#if $dataStore.name !== undefined}
-          <svelte:component this={Visualisation} dataset={$dataStore} />
+          <svelte:component this={Visualisation} data={$dataStore} />
         {:else}
           <Card class="col-span-5 m-auto">
             <Heading tag="h2">No data</Heading>

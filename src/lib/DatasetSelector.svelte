@@ -1,12 +1,31 @@
 <script lang="ts">
+  import { DataUtils } from 'dmvis';
   import { ChevronDownSolid } from 'flowbite-svelte-icons';
-  import { Button, Heading, Dropdown, DropdownItem } from 'flowbite-svelte';
+  import {
+    Button,
+    Heading,
+    Dropdown,
+    DropdownItem,
+    Fileupload,
+    Label,
+    Span
+  } from 'flowbite-svelte';
 
-  import { dataStore, datasets } from '$lib/stores/dataStore';
+  import { dataStore, datasets, type Data } from '$lib/stores/dataStore';
 
   // Update the dataStore with the new data
-  function selectDataset(newDataSet: { name: string; data: { x: number; y: number }[] }) {
+  function selectDataset(newDataSet: Data) {
     dataStore.set(newDataSet);
+  }
+
+  async function handleFileUpload(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    if (!file) return;
+
+    const dataUtil = new DataUtils();
+    await dataUtil.parseCSV(URL.createObjectURL(file));
+    console.log(dataUtil);
+    dataStore.set({ name: file.name, dataUtil: dataUtil });
   }
 </script>
 
@@ -22,5 +41,10 @@
         </DropdownItem>
       {/each}
     </Dropdown>
+    <br />
+    <Label class="mb-2 space-y-2">
+      <Span>Upload file</Span>
+      <Fileupload on:change={handleFileUpload} />
+    </Label>
   </div>
 </section>

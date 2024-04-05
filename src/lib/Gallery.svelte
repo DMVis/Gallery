@@ -6,22 +6,28 @@
 
   const visualisations = [
     {
-      title: 'Line Chart',
-      src: '/line-chart',
+      title: 'Parallel Coordinates',
+      src: '/parallel-coordinates',
       description:
-        "A line chart is a type of chart which displays information as a series of data points called 'markers' connected by straight line segments."
+        'Parallel coordinates is a common way of visualising high-dimensional geometry and analysing multivariate data.'
     },
     {
-      title: 'Bar Chart',
-      src: '/bar-chart',
+      title: 'Stacked Bar Chart',
+      src: '/stacked-bar-chart',
       description:
-        'A bar chart or bar visualisation is a chart or visualisation that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent.'
+        'A stacked bar chart is a type of bar chart that is used to display and compare the parts of a whole.'
     },
     {
-      title: 'Scatterplot',
-      src: '/scatterplot',
+      title: 'Scatterplot Matrix',
+      src: '/scatterplot-matrix',
       description:
-        'A scatter plot is a type of plot or mathematical diagram using Cartesian coordinates to display values for typically two variables for a set of data.'
+        'A scatterplot matrix is a grid of scatterplots that shows the relationships between pairs of variables.'
+    },
+    {
+      title: 'Tabular Visualisation',
+      src: '/tabular',
+      description:
+        'A tabular visualisation is a table that displays data in rows and columns. It is useful for comparing values.'
     }
   ];
 
