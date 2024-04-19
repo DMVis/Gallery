@@ -11,8 +11,6 @@
 
   export let data: Data;
   const current_page = $page.params.slug.split('/').pop() || '';
-  const width = 1750;
-  const height = 1500;
 </script>
 
 <article>
@@ -23,20 +21,13 @@
           marginLeft={100}
           marginTop={40}
           marginRight={50}
-          dataUtil={data.dataUtil}
-          {width}
-          {height} />
+          dataUtil={data.dataUtil} />
       {:else if current_page === 'stacked-bar-chart'}
-        <StackedBarChart marginLeft={100} {width} {height} data={data.dataUtil} />
+        <StackedBarChart marginLeft={100} dataUtil={data.dataUtil} />
       {:else if current_page === 'scatterplot-matrix'}
-        <ScatterplotMatrix
-          dataUtil={data.dataUtil}
-          {height}
-          {width}
-          pointColor="red"
-          pointOpacity={0.3} />
+        <ScatterplotMatrix dataUtil={data.dataUtil} pointOpacity={0.3} />
       {:else if current_page === 'tabular'}
-        <TabularVisualisation dataUtil={data.dataUtil} {width} {height} />
+        <TabularVisualisation dataUtil={data.dataUtil} />
       {:else}
         <p>404</p>
       {/if}

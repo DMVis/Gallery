@@ -23,9 +23,13 @@
     if (!file) return;
 
     const dataUtil = new DataUtils();
-    await dataUtil.parseCSV(URL.createObjectURL(file));
+    await dataUtil.parseData(URL.createObjectURL(file), getFileExtension(file));
     console.log(dataUtil);
     dataStore.set({ name: file.name, dataUtil: dataUtil });
+  }
+
+  function getFileExtension(file: File): string {
+    return file.name.split('.').pop() ?? '';
   }
 </script>
 
