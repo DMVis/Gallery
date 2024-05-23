@@ -3,18 +3,20 @@
     ParallelCoordinates,
     StackedBarChart,
     ScatterplotMatrix,
-    TabularVisualisation
+    TabularVisualisation,
+    ValueChart,
+    LineUp
   } from 'dmvis';
 
   import { page } from '$app/stores';
   import { type Data } from '$lib/stores/dataStore';
 
   export let data: Data;
-  const current_page = $page.params.slug.split('/').pop() || '';
+  $: current_page = $page.params.slug.split('/').pop() || '';
 </script>
 
-<article>
-  <section>
+<article class="h-full max-h-full max-w-full rounded bg-white dark:bg-[#f3f4f6]">
+  <section class="max-h-full">
     {#key data}
       {#if current_page === 'parallel-coordinates'}
         <ParallelCoordinates
@@ -28,6 +30,10 @@
         <ScatterplotMatrix dataUtil={data.dataUtil} pointOpacity={0.3} />
       {:else if current_page === 'tabular'}
         <TabularVisualisation dataUtil={data.dataUtil} />
+      {:else if current_page === 'value-chart'}
+        <ValueChart dataUtil={data.dataUtil} width={1500} height={1000} />
+      {:else if current_page === 'line-up'}
+        <LineUp dataUtil={data.dataUtil} />
       {:else}
         <p>404</p>
       {/if}
