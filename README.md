@@ -2,9 +2,11 @@
 
 Gallery of decision matrix visualizations created with DMVis.
 
-## Useful docs
+## Project context
 
-- [SvelteKit docs](https://kit.svelte.dev/docs).
+The Gallery for the DMVis framework is designed to be flexible and extensible, allowing developers to create a wide range of visualisations to suit their needs. DMVis is built using [Svelte](https://svelte.dev/) and [D3.js](https://d3js.org/), making it easy to integrate with existing web applications.
+
+This application was written for the [Softwareproject](https://softwareprojecten.sites.uu.nl/) course at [Utrecht University](https://www.uu.nl/). The goal of the course is to develop a software application for a real-world client. The client for this project is [Evanthia Dimara](https://www.uu.nl/staff/EDimara/0), an Assistant Professor and a researcher in Information Visualization at the [Visualization and Graphics Group (VIG)](https://www.uu.nl/en/research/interaction/visualization-and-graphics/people) at Utrecht University.
 
 ## Prerequisites
 
