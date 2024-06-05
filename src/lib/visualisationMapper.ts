@@ -38,17 +38,17 @@ const visualisations = [
     img: TabularVisualisation
   },
   {
-    title: 'Value Chart',
+    title: 'ValueChart',
     src: '/value-chart',
     description:
-      'A value chart is a combination of both invidivual and stacked bars to compare data and the weight each attributes hold.',
+      'A ValueChart is a combination of both invidivual and stacked bars to compare data and the weight each attributes hold.',
     img: ValueChart
   },
   {
-    title: 'Line Up',
+    title: 'LineUp',
     src: '/line-up',
     description:
-      'Line up is a visualisation used to rank and compare rows of data on many attributes.',
+      'LineUp is a visualisation used to rank and compare rows of data on many attributes.',
     img: 'https://user-images.githubusercontent.com/4129778/48187839-898c0d00-e33c-11e8-9d4a-360bc35741f4.png'
   }
 ];

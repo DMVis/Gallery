@@ -1,6 +1,6 @@
 # DMVis-Gallery
 
-Gallery of decision matrix visualizations created with DMVis.
+Gallery of decision matrix visualisations created with DMVis.
 
 ## Project context
 

@@ -24,12 +24,14 @@
     if (!file) return;
 
     const dataUtil = new DataUtils();
+    const dataUtilId = new DataUtils(true);
     html.style.cursor = 'wait';
     await dataUtil.parseData(URL.createObjectURL(file), getFileExtension(file));
+    await dataUtilId.parseData(URL.createObjectURL(file), getFileExtension(file));
     html.style.cursor = 'default';
     if ($datasets.find((dataset) => dataset.name === file.name) === undefined) {
-      datasets.update((d) => [...d, { name: file.name, dataUtil: dataUtil }]);
-      dataStore.set({ name: file.name, dataUtil: dataUtil });
+      datasets.update((d) => [...d, { name: file.name, dataUtil, dataUtilId }]);
+      dataStore.set({ name: file.name, dataUtil, dataUtilId });
     }
   }
 

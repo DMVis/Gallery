@@ -10,6 +10,7 @@ export type Row = {
 export type Data = {
   name: string;
   dataUtil: DataUtils;
+  dataUtilId: DataUtils;
 };
 
 // Get csv data
@@ -19,9 +20,11 @@ if (typeof window !== 'undefined') {
   files.forEach(async (file) => {
     const url = `${currentUrl}/datasets/${file}`;
     const dataUtil = new DataUtils();
+    const dataUtilId = new DataUtils(true);
     // Assuming DataUtils has a method like parseFile that accepts a File object
     await dataUtil.parseCSV(url);
-    datasets.update((d) => [...d, { name: file, dataUtil: dataUtil }]);
+    await dataUtilId.parseCSV(url);
+    datasets.update((d) => [...d, { name: file, dataUtil, dataUtilId }]);
   });
 }
 
