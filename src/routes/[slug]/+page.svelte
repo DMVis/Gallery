@@ -6,7 +6,7 @@
   import { dataStore, datasets } from '$lib/stores/dataStore';
   import Visualisation from '$lib/Visualisation.svelte';
   import SidebarVisualisation from '$lib/SidebarVisualisation.svelte';
-  import { DataUtils } from 'dmvis';
+  import { DataUtils } from '@dmvis/dmvis';
   import { getVisualisations } from '$lib/visualisationMapper';
   import { onMount } from 'svelte';
 

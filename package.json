@@ -1,6 +1,6 @@
 {
   "name": "@dmivs/dmvis-gallery",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -57,7 +57,6 @@
     "@typescript-eslint/parser": "^6.0.0",
     "autoprefixer": "^10.4.16",
     "d3": "^7.9.0",
-    "dmvis": "file:../dmvis",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.35.1",
@@ -82,5 +81,8 @@
   },
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@dmvis/dmvis": "^1.0.0-beta.0"
+  }
 }

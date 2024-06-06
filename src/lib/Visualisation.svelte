@@ -6,7 +6,7 @@
     TabularVisualisation,
     ValueChart,
     LineUp
-  } from 'dmvis';
+  } from '@dmvis/dmvis';
 
   import { page } from '$app/stores';
   import { type Data } from '$lib/stores/dataStore';

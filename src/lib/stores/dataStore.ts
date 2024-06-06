@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { DataUtils } from 'dmvis';
+import { DataUtils } from '@dmvis/dmvis';
 
 // Type definitions
 export type Row = {
