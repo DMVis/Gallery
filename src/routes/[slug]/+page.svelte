@@ -6,7 +6,7 @@
   import { dataStore, datasets } from '$lib/stores/dataStore';
   import Visualisation from '$lib/Visualisation.svelte';
   import SidebarVisualisation from '$lib/SidebarVisualisation.svelte';
-  import { DataUtils } from '@dmvis/dmvis';
+  import { DataUtils } from '@dmvis/dmvis/utils';
   import { getVisualisations } from '$lib/visualisationMapper';
   import { onMount } from 'svelte';
 
@@ -14,31 +14,47 @@
 
   let html: HTMLHtmlElement;
 
-  // get body to edit cursor on wait
+  // Get body to edit cursor on wait
   onMount(() => {
     html = document.querySelector('html')!;
   });
 
-  async function handleFileUpload(event: Event) {
-    const file = (event.target as HTMLInputElement)?.files?.[0];
-    if (!file) return;
-
-    const dataUtil = new DataUtils();
-    const dataUtilId = new DataUtils(true);
+  // Get the file and put it in the store
+  async function handleFileUpload(event: Event | DragEvent) {
+    event.preventDefault();
     html.style.cursor = 'wait';
-    await dataUtil.parseData(URL.createObjectURL(file), getFileExtension(file));
-    await dataUtilId.parseData(URL.createObjectURL(file), getFileExtension(file));
-    html.style.cursor = 'default';
-    if ($datasets.find((dataset) => dataset.name === file.name) === undefined) {
-      datasets.update((d) => [...d, { name: file.name, dataUtil, dataUtilId }]);
-      dataStore.set({ name: file.name, dataUtil, dataUtilId });
+    try {
+      // Fetch the file and its contents
+      const file =
+        (event.target as HTMLInputElement)?.files?.[0] ||
+        (event as DragEvent)?.dataTransfer?.items[0].getAsFile();
+      if (!file) return;
+      const fileContent = await file.text();
+
+      // Prepare the data
+      const dataUtil = new DataUtils();
+      const dataUtilId = new DataUtils(true);
+      await dataUtil.parseData(fileContent, getFileExtension(file));
+      await dataUtilId.parseData(fileContent, getFileExtension(file));
+
+      // Update the store
+      if ($datasets.find((dataset) => dataset.name === file.name) === undefined) {
+        datasets.update((d) => [...d, { name: file.name, dataUtil, dataUtilId }]);
+        dataStore.set({ name: file.name, dataUtil, dataUtilId });
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      html.style.cursor = 'default';
     }
   }
 
+  // Get the file extension
   function getFileExtension(file: File): string {
     return file.name.split('.').pop() ?? '';
   }
 
+  // Get the current page
   const current_page = $page.params.slug.split('/').pop() || '';
 </script>
 

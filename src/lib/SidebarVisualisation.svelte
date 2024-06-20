@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Button, Search, Radio } from 'flowbite-svelte';
+  import { Button, Search, Radio, Checkbox } from 'flowbite-svelte';
   import { fade } from 'svelte/transition';
 
-  import { dataStore, datasets, type Data } from '$lib/stores/dataStore';
+  import { dataStore, showFilter, scrollable, datasets, type Data } from '$lib/stores/dataStore';
 
   // Update the dataStore with the new data
   $: if (selectedDataset !== '') {
@@ -38,5 +38,10 @@
         }}
         class="mt-2">Reset</Button>
     {/if}
+
+    <div class="mb-0 mt-5">
+      <Checkbox bind:checked={$showFilter}>Show Filter</Checkbox>
+      <Checkbox bind:checked={$scrollable}>Make visualisation scrollable</Checkbox>
+    </div>
   </div>
 </article>

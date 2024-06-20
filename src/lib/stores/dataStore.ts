@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { DataUtils } from '@dmvis/dmvis';
+import { DataUtils } from '@dmvis/dmvis/utils';
 
 // Type definitions
 export type Row = {
@@ -14,7 +14,7 @@ export type Data = {
 };
 
 // Get csv data
-const files = ['holidays-20.csv', 'holidays-21.csv', 'holidays-22.csv'];
+const files = ['holidays-20.csv', 'qualityLifeCountryData.csv', 'EVCarsData.csv'];
 if (typeof window !== 'undefined') {
   const currentUrl = window.location.origin;
   files.forEach(async (file) => {
@@ -30,3 +30,5 @@ if (typeof window !== 'undefined') {
 
 export const dataStore = writable({} as Data);
 export const datasets = writable([] as Array<Data>);
+export const showFilter = writable(false);
+export const scrollable = writable(false);

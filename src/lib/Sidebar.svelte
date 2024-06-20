@@ -5,7 +5,7 @@
     Sidebar,
     SidebarWrapper,
     Heading,
-    P,
+    A,
     Hr,
     Accordion,
     AccordionItem
@@ -24,7 +24,6 @@
         <img class="mx-auto w-24" src={Icon} alt="DMVis Gallery Logo" />
         <Heading class="mx-auto">DMVis Gallery</Heading>
       </a>
-
       <Hr />
       <slot />
       <Hr />
@@ -43,11 +42,7 @@
           </ul>
         </AccordionItem>
       </Accordion>
-      <button
-        class="mt-8 flex cursor-pointer gap-2"
-        on:click={() => {
-          console.log('TODO');
-        }}>
+      <A href="https://dmvis-docs.netlify.app" class="mt-5 flex cursor-pointer gap-2">
         <svg
           class="h-[24px] w-[24px] text-gray-800 dark:text-white"
           aria-hidden="true"
@@ -61,8 +56,8 @@
             d="M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2Zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1V4Zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z"
             clip-rule="evenodd" />
         </svg>
-        <P>Documentation</P>
-      </button>
+        Documentation
+      </A>
       <DarkMode class="mt-auto w-10" />
     </SidebarWrapper>
   </Sidebar>
