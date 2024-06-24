@@ -28,33 +28,36 @@
           marginRight={50}
           dataUtil={data.dataUtil}
           isScrollable={$scrollable}
-          showFilter={$showFilter} />
+          showFilterPanel={$showFilter} />
       {:else if current_page === 'stacked-bar-chart'}
         <StackedBarChart
           marginLeft={200}
           dataUtil={data.dataUtil}
           isScrollable={$scrollable}
-          showFilter={$showFilter} />
+          showFilterPanel={$showFilter} />
       {:else if current_page === 'scatterplot-matrix'}
         <ScatterplotMatrix
           dataUtil={data.dataUtil}
           pointOpacity={0.3}
           isScrollable={$scrollable}
-          showFilter={$showFilter} />
+          showFilterPanel={$showFilter} />
       {:else if current_page === 'tabular'}
         <TabularVisualisation
           dataUtil={data.dataUtil}
           isScrollable={$scrollable}
-          showFilter={$showFilter} />
+          showFilterPanel={$showFilter} />
       {:else if current_page === 'value-chart'}
         <ValueChart
           dataUtil={data.dataUtil}
           width={1500}
           height={1000}
           isScrollable={$scrollable}
-          showFilter={$showFilter} />
+          showFilterPanel={$showFilter} />
       {:else if current_page === 'line-up'}
-        <LineUp dataUtil={data.dataUtilId} isScrollable={$scrollable} showFilter={$showFilter} />
+        <LineUp
+          dataUtil={data.dataUtilId}
+          isScrollable={$scrollable}
+          showFilterPanel={$showFilter} />
       {:else}
         <p>404</p>
       {/if}
