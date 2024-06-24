@@ -1,6 +1,6 @@
 {
   "name": "@dmivs/dmvis-gallery",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -84,6 +84,6 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "dependencies": {
-    "@dmvis/dmvis": "^1.0.0-beta.1"
+    "@dmvis/dmvis": "^1.0.0"
   }
 }
